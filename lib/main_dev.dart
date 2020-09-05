@@ -5,4 +5,5 @@ import 'app.dart';
 Future<void> main() async {
   await DotEnv().load('.env_dev');
   runApp(App());
+  print('addll');
 }
