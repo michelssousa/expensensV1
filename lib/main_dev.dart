@@ -7,5 +7,5 @@ Future<void> main() async {
   await DotEnv().load('.env_dev');
   runApp(App());
   var repo = ProviderRepository().transactionDAO().count();
-  repo.then((value) => print(value));
+  print("Count is value: $repo");
 }

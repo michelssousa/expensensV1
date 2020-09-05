@@ -5,35 +5,57 @@ import 'package:flutterExpenses/src/domain/abstract/repository/ItransactionRepos
 
 class TransactionRespository implements ItransactionRepository {
   @override
-  Future<HashMap<dynamic, Transaction>> betweenMonth(int start, int end) {
+  HashMap<dynamic, Transaction> betweenMonth(int start, int end) {
     // TODO: implement betweenMonth
     throw UnimplementedError();
   }
 
   @override
-  Future<int> count() async {
+  int count() {
+    int _res = 0;
     Future<int> _result = Future(() {
       return 12;
+    }).then((value) {
+      var value2 = value;
+      return _res = value2;
     });
 
-    return _result;
+    return _res;
   }
 
   @override
-  Future<bool> delete(id) {
+  bool delete(id) {
     // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
-  Future<Transaction> findById(String id) {
+  Transaction findById(String id) {
     // TODO: implement findById
     throw UnimplementedError();
   }
 
   @override
-  Future<Transaction> update(Transaction item) {
+  Transaction update(Transaction item) {
     // TODO: implement update
     throw UnimplementedError();
   }
 }
+
+// void main() async {
+//   var m = await michel();
+//   int m2= await michel2();
+//   print('testando');
+//    print(m);
+//   print(m2);
+
+// }
+
+// Future<String> michel() async{
+//   String lll = "Michel";
+//   return await Future.delayed(Duration(seconds: 0),()=>lll);
+// }
+
+// Future<int> michel2() async{
+//   int lll = 12;
+//   return await Future.delayed(Duration(seconds: 0),()=>lll);
