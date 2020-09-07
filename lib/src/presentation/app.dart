@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutterExpenses/src/domain/providers/variables/globalVariables.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class App extends StatelessWidget {
-  final Map<String, String> variaveisDeAmbiente = DotEnv().env;
+  final Map<String, String> variaveisDeAmbiente = VARIABLES_GLOBAL;
 
   @override
   Widget build(BuildContext context) {
