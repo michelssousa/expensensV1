@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
 
 mixin ItransactionRepository {
@@ -12,5 +10,13 @@ mixin ItransactionRepository {
   int count();
   bool delete(dynamic id);
   Transaction update(Transaction item);
-  HashMap<dynamic, Transaction> betweenMonth(int start, int end);
+  Map<String, Transaction> betweenMonth(int start, int end);
+  Transaction create(String date, String genericInfo, String descriptionInfo,
+      double value, String userName);
 }
+
+// @required this.date,
+//       @required this.genericInfo,
+//       @required this.descriptionInfo,
+//       @required this.value,
+//       @required this.userName

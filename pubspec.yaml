@@ -27,6 +27,7 @@ dependencies:
   change_app_package_name: ^0.1.2
   intl: ^0.16.1
   graphql_flutter: ^3.1.0
+  provider:
 
 
 

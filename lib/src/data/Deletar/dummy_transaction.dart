@@ -1,37 +1,37 @@
 import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
 
-Map DUMMY_TRANSACTION = {
-  '0': Transaction(
+Map<String, Transaction> DUMMY_TRANSACTION = {
+  'A': Transaction(
       date: '02/06/2020',
       genericInfo: 'Vestuario',
       descriptionInfo: 'Compra Blusa',
       value: 20.30,
       userName: 'Michel'),
-  '1': Transaction(
+  'B': Transaction(
       date: '02/06/2020',
       genericInfo: 'Vestuario',
       descriptionInfo: 'Compra Blusa',
       value: 20.30,
       userName: 'Michel'),
-  '2': Transaction(
+  'C': Transaction(
       date: '02/06/2020',
       genericInfo: 'Vestuario',
       descriptionInfo: 'Compra Blusa',
       value: 40.20,
       userName: 'Michel'),
-  '3': Transaction(
+  'D': Transaction(
       date: '02/06/2020',
       genericInfo: 'Vestuario',
       descriptionInfo: 'Compra Blusa',
       value: 20.30,
       userName: 'Michel'),
-  '4': Transaction(
+  'E': Transaction(
       date: '02/06/2020',
       genericInfo: 'Vestuario',
       descriptionInfo: 'Compra Blusa',
       value: 20.30,
       userName: 'Michel'),
-  '5': Transaction(
+  'F': Transaction(
       date: '02/06/2020',
       genericInfo: 'Vestuario',
       descriptionInfo: 'Compra Blusa',
