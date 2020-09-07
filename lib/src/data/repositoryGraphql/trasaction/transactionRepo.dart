@@ -1,9 +1,12 @@
 import 'dart:collection';
 
+import 'package:flutterExpenses/src/data/Deletar/dummy_transaction.dart';
 import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
 import 'package:flutterExpenses/src/domain/abstract/repository/ItransactionRepository.dart';
 
 class TransactionRespository implements ItransactionRepository {
+  final Map _mock = DUMMY_TRANSACTION;
+
   @override
   HashMap<dynamic, Transaction> betweenMonth(int start, int end) {
     // TODO: implement betweenMonth
@@ -12,15 +15,7 @@ class TransactionRespository implements ItransactionRepository {
 
   @override
   int count() {
-    int _res = 0;
-    Future<int> _result = Future(() {
-      return 12;
-    }).then((value) {
-      var value2 = value;
-      return _res = value2;
-    });
-
-    return _res;
+    return _mock.length;
   }
 
   @override
