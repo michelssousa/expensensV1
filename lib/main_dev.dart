@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
 import 'package:flutterExpenses/src/domain/providers/infra/repository/providerRepository.dart';
+import 'package:flutterExpenses/src/domain/providers/presentation/providerPresentation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'src/presentation/app.dart';
@@ -15,8 +16,10 @@ Future<void> main() async {
       descriptionInfo: 'Almoco domingo',
       value: 100.89,
       userName: 'Michel');
+  var mod = ProviderPresentation().getModTransaction();
 
-  var repo = ProviderRepository().transactionDAO();
+  var repo = mod.modTransaction();
+
   var count = repo.count();
 
   print('Tesntando o Create valor e repositorio mock e Inicial $count');

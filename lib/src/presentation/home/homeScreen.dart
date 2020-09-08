@@ -6,13 +6,16 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  final GlobalKey<ScaffoldState> scaffoldState = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('na home'),
-      ),
-      body: Container(),
-    );
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
+    double widthScreen = mediaQueryData.size.width;
+    double heightScreen = mediaQueryData.size.height;
+    return SafeArea(
+        child: Stack(
+      children: <Widget>[],
+    ));
   }
 }

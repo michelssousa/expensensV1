@@ -1,10 +1,10 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutterExpenses/src/domain/providers/presentation/config/color/appColor.dart';
-import 'package:flutterExpenses/src/domain/providers/presentation/config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+import 'package:flutterExpenses/src/domain/providers/presentation/providerPresentation.dart';
 
 class WidgetBackground extends StatelessWidget {
-  final AppColor _appColor = Config().getColor();
+  var _appColor = ProviderPresentation().getModConfig().getColor();
 
   @override
   Widget build(BuildContext context) {
