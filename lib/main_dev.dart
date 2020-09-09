@@ -48,8 +48,15 @@ Future<void> main() async {
 
   count = repo.count();
 
-  var keys = repo.betweenMonth(1, 2).keys;
+  var keys = repo.betweenMonthListJson(1, 2);
+
+  // keys.forEach((element) {
+  //   var nome = element.toJson();
+  //   print('$nome["id"] => $nome["description"]');
+  // });
 
   print(
-      '\nTesntando o Delete valor e repositorio mock Final $count iten(s) retorno funcao = $retornor\n chaves $keys ');
+      '\nTesntando o Delete valor e repositorio mock Final $count iten(s) retorno funcao = $retornor\n ');
+  print('Transaction Json ======================');
+  print(keys);
 }

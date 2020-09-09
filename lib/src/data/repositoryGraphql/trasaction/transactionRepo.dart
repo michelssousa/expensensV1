@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutterExpenses/src/data/Deletar/dummy_transaction.dart';
 import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
 import 'package:flutterExpenses/src/domain/abstract/repository/ItransactionRepository.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class TransactionRespository with ItransactionRepository, ChangeNotifier {
   final Map<String, Transaction> _mock = {...DUMMY_TRANSACTION};
@@ -52,6 +55,18 @@ class TransactionRespository with ItransactionRepository, ChangeNotifier {
         userName: userName);
     _mock.putIfAbsent(_result.id, () => _result);
     notifyListeners();
+    return _result;
+  }
+
+  @override
+  List betweenMonthListJson(int start, int end) {
+    var _preResult = this.betweenMonth(start, end).values.toList();
+    List _result = List<dynamic>();
+
+    _preResult.forEach((element) {
+      _result.add(element.toJson());
+    });
+
     return _result;
   }
 }

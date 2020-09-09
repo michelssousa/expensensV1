@@ -13,6 +13,7 @@ mixin ItransactionRepository {
   Map<String, Transaction> betweenMonth(int start, int end);
   Transaction create(String date, String genericInfo, String descriptionInfo,
       double value, String userName);
+  List betweenMonthListJson(int start, int end);
 }
 
 // @required this.date,

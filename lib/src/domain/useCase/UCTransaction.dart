@@ -37,4 +37,9 @@ class UcTransaction with ItransactionRepository {
   Transaction update(Transaction item) {
     return repository.update(item);
   }
+
+  @override
+  List betweenMonthListJson(int start, int end) {
+    return repository.betweenMonthListJson(start, end);
+  }
 }
