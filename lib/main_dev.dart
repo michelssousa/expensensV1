@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
-import 'package:flutterExpenses/src/domain/providers/infra/repository/providerRepository.dart';
 import 'package:flutterExpenses/src/domain/providers/presentation/providerPresentation.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutterExpenses/src/presentation/app.dart';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'src/presentation/app.dart';
 
 Future<void> main() async {

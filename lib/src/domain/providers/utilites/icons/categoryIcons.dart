@@ -1,0 +1,5 @@
+class CategoryIcons {
+  
+  CategoryIcons() {}
+  getIcons() {}
+}
