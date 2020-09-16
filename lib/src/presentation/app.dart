@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterExpenses/src/domain/providers/presentation/providerPresentation.dart';
 import 'package:flutterExpenses/src/domain/providers/variables/globalVariables.dart';
 
-import 'home/home.dart';
+import 'pages/homePage.dart';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class App extends StatelessWidget {
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: _appColor.colorSecondary),
-      home: Home(),
+      home: HomePage(),
     );
   }
 }
