@@ -3,10 +3,12 @@ import 'package:flutterExpenses/src/domain/providers/presentation/modTransaction
 
 class ProviderPresentation {
   Config getModConfig() {
-    return Config();
+    var _config = Config();
+    return _config;
   }
 
   ModTransaction getModTransaction() {
-    return ModTransaction();
+    var _modTransaction = ModTransaction();
+    return _modTransaction;
   }
 }

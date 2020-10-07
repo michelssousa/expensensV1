@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterExpenses/src/data/Deletar/dummy_transaction.dart';
 import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
 import 'package:flutterExpenses/src/domain/abstract/repository/ItransactionRepository.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class TransactionRespository with ItransactionRepository, ChangeNotifier {
   final Map<String, Transaction> _mock = {...DUMMY_TRANSACTION};
