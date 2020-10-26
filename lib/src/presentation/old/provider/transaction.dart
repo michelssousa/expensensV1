@@ -1,83 +1,35 @@
 import 'package:flutter/material.dart';
-
-class Transaction {
-  final int id;
-  final String title;
-  final double value;
-  final String category;
-  final IconData iconData;
-  final Color color;
-
-  const Transaction(
-      {@required this.id,
-      @required this.title,
-      @required this.value,
-      @required this.category,
-      @required this.iconData,
-      @required this.color});
-}
+import 'package:flutterExpenses/src/domain/Entity/expenses/Expenses.dart';
+import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
+import 'package:flutterExpenses/src/domain/providers/presentation/providerPresentation.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 
 class Transactions with ChangeNotifier {
-  List<Transaction> _transactions = [
-    Transaction(
-        id: 1,
-        title: 'Vestuario',
-        value: 128.90,
-        category: 'Vesturario',
-        iconData: Icons.shop,
-        color: Colors.black12),
-    Transaction(
-        id: 2,
-        title: 'Alimentacao',
-        value: -70.90,
-        category: 'Alimentacao',
-        iconData: Icons.fastfood,
-        color: Colors.black12),
-    Transaction(
-        id: 3,
-        title: 'Vesturario',
-        value: 128.90,
-        category: 'Alimentacao',
-        iconData: Icons.fastfood,
-        color: Colors.black12),
-    Transaction(
-        id: 4,
-        title: 'Combustivel',
-        value: 128.90,
-        category: 'Ir Mae',
-        iconData: Icons.local_gas_station,
-        color: Colors.black12),
-    Transaction(
-        id: 1,
-        title: 'Vestuario',
-        value: 128.90,
-        category: 'Vesturario',
-        iconData: Icons.shop,
-        color: Colors.black12),
-    Transaction(
-        id: 2,
-        title: 'Alimentacao',
-        value: -70.90,
-        category: 'Alimentacao',
-        iconData: Icons.fastfood,
-        color: Colors.black),
-    Transaction(
-        id: 3,
-        title: 'Vesturario',
-        value: 128.90,
-        category: 'Alimentacao',
-        iconData: Icons.fastfood,
-        color: Colors.black12),
-    Transaction(
-        id: 4,
-        title: 'Combustivel',
-        value: 128.90,
-        category: 'Ir Mae',
-        iconData: Icons.local_gas_station,
-        color: Colors.black12),
-  ];
+  //Transactions(this._monthStart, this._monthEnd);
+  final _prov = ProviderPresentation();
 
-  List<Transaction> get transactions {
-    return _transactions;
+  List<dynamic> transactions(int _monthStart, int _monthEnd) {
+    final mod = ProviderPresentation().getModTransaction();
+    var repo = mod.modTransaction();
+
+    var _keys = repo.betweenMonthListJson(_monthStart, _monthEnd);
+
+    return _keys;
+  }
+
+  List<String> transactionDescriptions() {
+    return _prov.getTransactionDescripton();
+  }
+
+  ProviderPresentation getProvider() {
+    return _prov;
+  }
+
+  List<charts.Series<Expenses, String>> getExpensesResume(List transactions) {
+    return _prov.getExpensesSeries(transactions);
+  }
+
+  Color getColorTransaction(GenericInfo genericInfo) {
+    return ProviderPresentation().getColorTransaction(genericInfo);
   }
 }

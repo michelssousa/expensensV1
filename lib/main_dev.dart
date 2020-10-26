@@ -12,7 +12,7 @@ Future<void> main() async {
 
   var item = Transaction(
       date: "01/12/2020",
-      genericInfo: 'Alimentacao',
+      genericInfo: GenericInfo.alimentacao,
       descriptionInfo: 'Almoco domingo',
       value: 100.89,
       userName: 'Michel');

@@ -1,3 +1,4 @@
+import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
 import 'package:flutterExpenses/src/domain/abstract/repository/Irepository.dart';
 import 'package:flutterExpenses/src/domain/abstract/repository/ItransactionRepository.dart';
 import 'package:flutterExpenses/src/domain/providers/infra/repository/providerRepository.dart';
@@ -14,5 +15,9 @@ class ModTransaction {
 
   UcTransaction modTransaction() {
     return UcTransaction(this._itransactionRepository);
+  }
+
+  Transaction transactionViewCreate(Map transaction) {
+    return Transaction.fromJson(transaction);
   }
 }

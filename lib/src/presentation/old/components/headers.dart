@@ -1,29 +1,20 @@
-import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:flutterExpenses/src/presentation/old/Models/Expenses.dart';
+import 'package:flutter/material.dart';
+import 'package:flutterExpenses/src/domain/Entity/expenses/Expenses.dart';
+
 import 'package:flutterExpenses/src/presentation/old/components/ExpensesChart.dart';
+import 'package:flutterExpenses/src/presentation/old/provider/transaction.dart';
 
 class Headers extends StatelessWidget {
   final Function addTransaction;
   final Function openFilter;
+  List<dynamic> transactionsList;
+  List<charts.Series<Expenses, String>> _series;
 
-  const Headers(this.addTransaction, this.openFilter);
+  Headers(this.addTransaction, this.openFilter, this.transactionsList) {
+    this._series = Transactions().getExpensesResume(this.transactionsList);
+  }
 
-  static List<charts.Series<Expenses, String>> _serie = [
-    charts.Series<Expenses, String>(
-        id: 'Expenses',
-        domainFn: (Expenses expenses, _) => expenses.category,
-        measureFn: (Expenses expenses, _) => expenses.value,
-        labelAccessorFn: (Expenses expenses, _) => '\$${expenses.value}',
-        colorFn: (Expenses expenses, _) =>
-            charts.ColorUtil.fromDartColor(expenses.color),
-        data: [
-          Expenses('Vestuario', 140, Colors.black),
-          Expenses('Alimentacao', 112, Colors.black38),
-          Expenses('Combustivel', 125, Colors.amber),
-          Expenses('Outros', 125, Colors.red),
-        ])
-  ];
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
@@ -38,10 +29,10 @@ class Headers extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 112,
-              child: Expenseschart(_serie, true),
+              height: 110,
+              child: Expenseschart(_series, true),
             ),
-            SizedBox(height: 14),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -68,34 +59,10 @@ class Headers extends StatelessWidget {
                     ),
                   ),
                 ),
-                FlatButton(
-                    onPressed: this.openFilter,
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24)),
-                    child: Container(
-                      width: 124,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Reports',
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: primaryColor,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Icon(
-                            Icons.navigate_next,
-                            color: primaryColor,
-                          ),
-                        ],
-                      ),
-                    ))
               ],
             ),
             SizedBox(
-              height: 16,
+              height: 10,
             ),
             Padding(
                 padding: const EdgeInsets.only(left: 12),
@@ -113,3 +80,52 @@ class Headers extends StatelessWidget {
     );
   }
 }
+// children: [
+//   OutlineButton(
+//     onPressed: this.addTransaction,
+//     borderSide: const BorderSide(width: 1, color: Colors.white),
+//     shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(24)),
+//     child: Container(
+//       width: 124,
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           const Icon(Icons.playlist_add, color: Colors.white),
+//           const SizedBox(width: 4),
+//           const Text(
+//             'Add Transaction',
+//             style: TextStyle(
+//                 fontSize: 12,
+//                 color: Colors.white,
+//                 fontWeight: FontWeight.bold),
+//           )
+//         ],
+//       ),
+//     ),
+//   ),
+//   FlatButton(
+//       onPressed: this.openFilter,
+//       color: Colors.white,
+//       shape: RoundedRectangleBorder(
+//           borderRadius: BorderRadius.circular(24)),
+//       child: Container(
+//         width: 124,
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Text(
+//               'Reports',
+//               style: TextStyle(
+//                   fontSize: 12,
+//                   color: primaryColor,
+//                   fontWeight: FontWeight.bold),
+//             ),
+//             Icon(
+//               Icons.navigate_next,
+//               color: primaryColor,
+//             ),
+//           ],
+//         ),
+//       ))
+// ]

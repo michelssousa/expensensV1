@@ -17,8 +17,8 @@ class UcTransaction with ItransactionRepository {
   }
 
   @override
-  Transaction create(String date, String genericInfo, String descriptionInfo,
-      double value, String userName) {
+  Transaction create(String date, GenericInfo genericInfo,
+      String descriptionInfo, double value, String userName) {
     return repository.create(
         date, genericInfo, descriptionInfo, value, userName);
   }

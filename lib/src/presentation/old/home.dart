@@ -3,6 +3,9 @@ import 'package:flutterExpenses/src/presentation/old/components/headers.dart';
 import 'package:flutterExpenses/src/presentation/old/components/newTransaction.dart';
 import 'package:flutterExpenses/src/presentation/old/components/transactionForm.dart';
 import 'package:flutterExpenses/src/presentation/old/components/transactionsCards.dart';
+import 'package:provider/provider.dart';
+
+import 'provider/transaction.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,6 +13,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final int _monthStart = DateTime.now().month;
+  final int _monthEnd = DateTime.now().month + 1;
+
   double _heigth = .55;
   double _opacity = .9;
   bool _visibility = true;
@@ -49,6 +55,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final providerTransaction = Provider.of<Transactions>(context);
+    final listTransactions =
+        providerTransaction.transactions(this._monthStart, this._monthEnd);
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -71,13 +80,13 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             Column(
               children: [
-                Headers(_addTransaction, _openFilters),
+                Headers(_addTransaction, _openFilters, listTransactions),
                 Newtransaction(_opacity, _openFilters)
               ],
             ),
             Visibility(
               visible: this._visibility,
-              child: Transactionscards(_heigth),
+              child: Transactionscards(_heigth, 1, 2),
               replacement: Transactionform(0.90, _done),
             )
           ],

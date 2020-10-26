@@ -11,8 +11,8 @@ mixin ItransactionRepository {
   bool delete(dynamic id);
   Transaction update(Transaction item);
   Map<String, Transaction> betweenMonth(int start, int end);
-  Transaction create(String date, String genericInfo, String descriptionInfo,
-      double value, String userName);
+  Transaction create(String date, GenericInfo genericInfo,
+      String descriptionInfo, double value, String userName);
   List betweenMonthListJson(int start, int end);
 }
 

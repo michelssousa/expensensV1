@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutterExpenses/src/data/Deletar/dummy_transaction.dart';
 import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
@@ -44,8 +42,8 @@ class TransactionRespository with ItransactionRepository, ChangeNotifier {
   }
 
   @override
-  Transaction create(String date, String genericInfo, String descriptionInfo,
-      double value, String userName) {
+  Transaction create(String date, GenericInfo genericInfo,
+      String descriptionInfo, double value, String userName) {
     var _result = Transaction(
         date: date,
         genericInfo: genericInfo,

@@ -6,8 +6,10 @@ import 'package:provider/provider.dart';
 
 class Transactionscards extends StatefulWidget {
   final double heigth;
+  final int _monthStart;
+  final int _monthEnd;
 
-  const Transactionscards(this.heigth);
+  const Transactionscards(this.heigth, this._monthStart, this._monthEnd);
 
   @override
   _TransactionscardsState createState() => _TransactionscardsState();
@@ -15,10 +17,14 @@ class Transactionscards extends StatefulWidget {
 
 class _TransactionscardsState extends State<Transactionscards> {
   int _date = 16;
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final providerTransaction = Provider.of<Transactions>(context);
+    final listTransactions = providerTransaction.transactions(
+        this.widget._monthStart, this.widget._monthEnd);
+
     return Positioned(
       bottom: 0,
       left: mediaQuery.size.width * .03,
@@ -78,9 +84,9 @@ class _TransactionscardsState extends State<Transactionscards> {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: providerTransaction.transactions.length,
+                itemCount: listTransactions.length,
                 itemBuilder: (context, i) {
-                  return Trasactionitem(providerTransaction.transactions[i]);
+                  return Trasactionitem(listTransactions[i]);
                 }),
           )
         ]),
