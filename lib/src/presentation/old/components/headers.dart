@@ -19,6 +19,7 @@ class Headers extends StatelessWidget {
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
     final mediaQuery = MediaQuery.of(context);
+
     return Container(
       width: double.infinity,
       height: mediaQuery.size.height * .4,

@@ -3,6 +3,7 @@ import 'package:flutterExpenses/src/presentation/old/components/headers.dart';
 import 'package:flutterExpenses/src/presentation/old/components/newTransaction.dart';
 import 'package:flutterExpenses/src/presentation/old/components/transactionForm.dart';
 import 'package:flutterExpenses/src/presentation/old/components/transactionsCards.dart';
+import 'package:flutterExpenses/src/presentation/routes/appRoutes.dart';
 import 'package:provider/provider.dart';
 
 import 'provider/transaction.dart';
@@ -24,7 +25,8 @@ class _HomeState extends State<Home> {
     setState(() {
       // _heigth = .10;
       // _opacity = 1;
-      _visibility = false;
+      //_visibility = false;
+      Navigator.pushNamed(context, AppRoutes.FORM);
     });
   }
 
@@ -41,16 +43,6 @@ class _HomeState extends State<Home> {
       // _opacity = .9;
       _visibility = true;
     });
-  }
-
-  void showForm(context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc) {
-          return Container(
-            child: Text('data'),
-          );
-        });
   }
 
   @override
@@ -81,13 +73,14 @@ class _HomeState extends State<Home> {
             Column(
               children: [
                 Headers(_addTransaction, _openFilters, listTransactions),
-                Newtransaction(_opacity, _openFilters)
+                //Newtransaction(_opacity, _openFilters)
               ],
             ),
             Visibility(
               visible: this._visibility,
-              child: Transactionscards(_heigth, 1, 2),
-              replacement: Transactionform(0.90, _done),
+              child:
+                  Transactionscards(_heigth, 1, 2, providerTransaction, _done),
+              replacement: Transactionform(0.90, _done, providerTransaction),
             )
           ],
         ));

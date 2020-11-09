@@ -1,4 +1,4 @@
 class AppRoutes {
-  static const HOME = '/homescreen';
-  static const USER_FORM = '/';
+  static const HOME = 'home';
+  static const FORM = 'form';
 }

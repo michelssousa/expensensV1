@@ -3,6 +3,7 @@ import 'package:flutterExpenses/src/domain/Entity/transaction/Transaction.dart';
 import 'package:flutterExpenses/src/domain/providers/presentation/providerPresentation.dart';
 import 'package:flutterExpenses/src/domain/providers/variables/globalVariables.dart';
 import 'package:flutterExpenses/src/presentation/old/home.dart';
+import 'package:flutterExpenses/src/presentation/old/pages/form.dart';
 import 'package:flutterExpenses/src/presentation/old/provider/transaction.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +19,10 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: _appColor.fontFamily),
         home: Home(),
+        routes: {
+          'home': (context) => Home(),
+          'form': (context) => FormTransaction()
+        },
       ),
     );
   }

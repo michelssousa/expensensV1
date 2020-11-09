@@ -57,8 +57,8 @@ Map<String, Transaction> DUMMY_TRANSACTION = {
       userName: 'Michel'),
   'I': Transaction(
       date: '03/06/2020',
-      genericInfo: GenericInfo.entrada,
-      descriptionInfo: 'Venda de Roupa',
+      genericInfo: GenericInfo.emprestimo,
+      descriptionInfo: 'Mafalda',
       value: 200,
       userName: 'Michel'),
   'J': Transaction(

@@ -9,6 +9,7 @@ class TransactionRespository with ItransactionRepository, ChangeNotifier {
   @override
   Map<String, Transaction> betweenMonth(int start, int end) {
     final Map<String, Transaction> _result = {..._mock};
+    notifyListeners();
     return _result;
   }
 

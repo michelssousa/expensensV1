@@ -14,7 +14,8 @@ enum GenericInfo {
   servicos,
   lazer,
   diversos,
-  entrada
+  entrada,
+  emprestimo
 }
 
 class Transaction extends IEntity {
@@ -168,6 +169,11 @@ class Transaction extends IEntity {
           ret = Icons.monetization_on;
         }
         break;
+      case GenericInfo.emprestimo:
+        {
+          ret = Icons.mood_bad;
+        }
+        break;
       default:
         {
           ret = Icons.local_grocery_store;
@@ -182,12 +188,12 @@ class Transaction extends IEntity {
     switch (genericInfo) {
       case GenericInfo.habitacao:
         {
-          ret = Colors.grey[800];
+          ret = Colors.lightGreenAccent;
         }
         break;
       case GenericInfo.alimentacao:
         {
-          ret = Colors.red;
+          ret = Colors.amber;
         }
         break;
       case GenericInfo.combustivel:
@@ -202,7 +208,7 @@ class Transaction extends IEntity {
         break;
       case GenericInfo.educacao:
         {
-          ret = Colors.amber;
+          ret = Colors.yellowAccent;
         }
         break;
       case GenericInfo.vestuario:
@@ -228,6 +234,11 @@ class Transaction extends IEntity {
       case GenericInfo.entrada:
         {
           ret = Colors.green;
+        }
+        break;
+      case GenericInfo.emprestimo:
+        {
+          ret = Colors.red;
         }
         break;
       default:
